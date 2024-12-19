@@ -1,27 +1,69 @@
-# detection-offensive-comments-dataset
-# Este repositório contém o dataset gerado a partir de comentários extraídos da rede social Youtube.
+# Detection Offensive Comments Dataset
 
-A coleta dos dados foi realizada por meio da API YouTube Data, com o objetivo de construir um conjunto representativo de comentários em língua portuguesa, oriundos de vídeos do YouTube Brasil. Foram selecionados cinco vídeos de diferentes temas, escolhidos pela sua grande repercussão e pelo fato de serem amplamente conhecidos e polêmicos. Justamente por serem vídeos de alta visibilidade, eles atraem um grande volume de comentários, incluindo um número expressivo de comentários negativos e ofensivos, o que enriquece a análise. De cada vídeo, foram extraídos 1000 comentários, totalizando 5000 mil comentários. Para garantir a qualidade e a relevância dos dados textuais, uma série de etapas de pré-processamento foram executadas, visando reduzir o ruído e preservar a estrutura linguística dos comentários:
+Este repositório contém o **dataset gerado a partir de comentários extraídos da rede social YouTube**.
 
-Remoção de caracteres especiais: eliminando emojis, links e símbolos para focar no conteúdo textual.
-Filtragem de onomatopeias: expressões como ‘kkkk’, ‘haha’, e ‘ksks’ foram removidas.
-Exclusão de nomes próprios: com o intuito de evitar vieses que poderiam afetar o modelo.
-Filtragem de idioma: apenas os comentários em português brasileiro foram mantidos.
-Eliminação de texto não inteligível: exemplos como ‘hdjk’ foram descartados.
-Conversão para minúsculas: padronizando o texto para melhorar a consistência dos dados.
+## Descrição do Dataset
 
-Os critérios de rotulação incluem:
-Linguagem inapropriada
-Discurso de ódio
-Ameaças
-Assédio ou bullying
-Conteúdo discriminatório
-Desrespeito
-Incitação à violência
-Intenções maliciosas
-Expressão excessivamente negativa
+A coleta dos dados foi realizada por meio da **API YouTube Data**, com o objetivo de construir um conjunto representativo de comentários em língua portuguesa, oriundos de vídeos do YouTube Brasil. Foram selecionados **cinco vídeos de diferentes temas**, escolhidos pela sua grande repercussão e pelo fato de serem amplamente conhecidos e polêmicos.
 
-Os comentários foram rotulados manualmente, com base em uma série de critérios que representam comportamentos ofensivos e inadequados. A cada comentário, foi atribuída uma classe binária, onde 1 indica comentário ofensivo e 0 indica comentário não ofensivo.
+### Características da Coleta
 
-Após o pré-processamento, o conjunto de dados passou a ser composto por 4139 documentos, dos quais 2683 (cerca de 64,82%) foram classificados como não ofensivos e 1456 (aproximadamente 35,18%) como ofensivos. Esse desbalanceamento é um aspecto relevante para a modelagem, pois demanda técnicas de ajuste para evitar viés em favor da classe majoritária (não ofensivo). A análise exploratória indicou um total de 48495 palavras no conjunto, com uma média de 12 palavras por documento.
+- **Número total de comentários**: 5000  
+  - **1000 comentários por vídeo**
+- **Critérios de seleção**: Vídeos de alta visibilidade que atraem um grande volume de comentários, incluindo um número expressivo de comentários negativos e ofensivos.
+
+## Pré-processamento dos Dados
+
+Para garantir a qualidade e relevância dos dados textuais, foram aplicadas as seguintes etapas de pré-processamento:
+
+1. **Remoção de caracteres especiais**:  
+   Emojis, links e símbolos foram removidos para focar no conteúdo textual.
+
+2. **Filtragem de onomatopeias**:  
+   Expressões como `kkkk`, `haha` e `ksks` foram removidas.
+
+3. **Exclusão de nomes próprios**:  
+   Evita vieses que poderiam afetar o modelo.
+
+4. **Filtragem de idioma**:  
+   Apenas comentários em português brasileiro foram mantidos.
+
+5. **Eliminação de texto não inteligível**:  
+   Exemplos como `hdjk` foram descartados.
+
+6. **Conversão para minúsculas**:  
+   Padronização para melhorar a consistência dos dados.
+
+## Critérios de Rotulação
+
+Os comentários foram rotulados manualmente com base nos seguintes critérios:
+
+- Linguagem inapropriada  
+- Discurso de ódio  
+- Ameaças  
+- Assédio ou bullying  
+- Conteúdo discriminatório  
+- Desrespeito  
+- Incitação à violência  
+- Intenções maliciosas  
+- Expressão excessivamente negativa  
+
+### Classes
+
+- **1**: Comentário ofensivo  
+- **0**: Comentário não ofensivo  
+
+## Estatísticas do Dataset
+
+Após o pré-processamento, o dataset ficou composto da seguinte forma:
+
+- **Total de documentos**: 4139  
+  - **Comentários não ofensivos**: 2683 (64,82%)  
+  - **Comentários ofensivos**: 1456 (35,18%)  
+
+### Observações
+
+- O desbalanceamento entre as classes demanda técnicas de ajuste para evitar viés em favor da classe majoritária (não ofensivo).  
+- **Total de palavras**: 48495  
+- **Média de palavras por documento**: 12  
 
